@@ -70,6 +70,33 @@ namespace CGPaсtice3
             var p3 = new Point(Convert.ToInt32(x - 5.5 * x + xcentre), y - y * 3 + ycentre);
             var p4 = new Point(Convert.ToInt32(x - 5.5 * x + xcentre), y - y * 9 + ycentre);
             Point[] points = new Point[] { p1, p2, p3, p4 };
+
+            int[,] matrixPoints = new int[points.Length, 3];
+            for (int i = 0; i < matrixPoints.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrixPoints.GetLength(1); j++)
+                {
+                    if ( j == 0 )
+                        matrixPoints[i, j] = points[i].X;
+                    else if (j == 1)
+                        matrixPoints[i, j] = points[i].Y;
+                    else matrixPoints[i, j] = 1;
+                }
+            }
+            Matrix matrix = new Matrix();
+
+            //matrixPoints = matrix.Irror_reflection(matrixPoints);
+            matrixPoints = matrix.Translation(matrixPoints, x, y);
+            //matrixPoints = matrix.Dilatation(matrixPoints, 2, 2);
+
+            p1 = new Point(matrixPoints[0, 0], matrixPoints[0, 1]);
+            p2 = new Point(matrixPoints[1, 0], matrixPoints[1, 1]);
+            p3 = new Point(matrixPoints[2, 0], matrixPoints[2, 1]);
+            p4 = new Point(matrixPoints[3, 0], matrixPoints[3, 1]);
+            Point[] points2 = new Point[] { p1, p2, p3, p4 };
+
+            Pen penGreen = new Pen(Color.Green, 1);
+            g.DrawPolygon(penGreen, points2);
             g.DrawPolygon(penRed, points);
         }
     }
