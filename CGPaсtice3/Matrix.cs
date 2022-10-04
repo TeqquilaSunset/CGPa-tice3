@@ -14,12 +14,12 @@ namespace CGPaсtice3
         /// <param name="A">Матрица с координатами фигуры</param>
         /// <param name="f">угол наклона в градусах</param>
         /// <returns>Матрица с преобразованными координатами фигуры</returns>
-        public int[,] Rotation(int[,] A, int f)
+        public double[,] Rotation(double[,] A, double f)
         {
-            int[,] rotation =
+            double[,] rotation =
         {
-            {Convert.ToInt32(Math.Cos(f)), Convert.ToInt32(Math.Sin(f)), 0},
-            {-Convert.ToInt32(Math.Sin(f)), Convert.ToInt32(Math.Cos(f)), 0},
+            {(double)Math.Cos(f), (double)Math.Sin(f), 0},
+            {(double)-Math.Sin(f), (double)Math.Cos(f), 0},
             {0, 0, 1},
         };
             return Multiplication(A, rotation);
@@ -32,9 +32,9 @@ namespace CGPaсtice3
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public int[,] Dilatation(int[,] A, int x, int y)
+        public double[,] Dilatation(double[,] A, double x, double y)
         {
-            int[,] dilatation =
+            double[,] dilatation =
         {
             {x, 0, 0},
             {0, y, 0},
@@ -47,16 +47,18 @@ namespace CGPaсtice3
         /// Отражение
         /// </summary>
         /// <param name="A"></param>
+        /// <param name="s">x или y по какой оси инвертировать</param>
         /// <returns></returns>
-        public int[,] Irror_reflection(int[,] A)
+        public double[,] Irror_reflection(double[,] A, int x, int y)
         {
-            int[,] irror_reflection =
+            double[,] irror_reflection =
         {
-            {1, 0, 0},
-            {0, -1, 0},
+            {x, 0, 0},
+            {0, y, 0},
             {0, 0, 1},
         };
             return Multiplication(A, irror_reflection);
+
         }
 
         /// <summary>
@@ -66,9 +68,9 @@ namespace CGPaсtice3
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public int[,] Translation(int[,] A, int x, int y)
+        public double[,] Translation(double[,] A, int x, int y)
         {
-            int[,] translation =
+            double[,] translation =
         {
             {1, 0, 0},
             {0, 1, 0},
@@ -83,9 +85,9 @@ namespace CGPaсtice3
         /// <param name="A">Матрица А</param>
         /// <param name="B">Матрица В</param>
         /// <returns>Матрица с результатами перемножения</returns>
-        private int[,] Multiplication(int[,] A, int[,] B)
+        private double[,] Multiplication(double[,] A, double[,] B)
         {
-            int[,] r = new int[A.GetLength(0),  A.GetLength(1)];
+            double[,] r = new double[A.GetLength(0),  A.GetLength(1)];
             for (int i = 0; i < A.GetLength(0); i++)
             {
                 for (int j = 0; j < B.GetLength(1); j++)
