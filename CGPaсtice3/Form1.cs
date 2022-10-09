@@ -13,6 +13,8 @@ namespace CGPaсtice3
 {
     public partial class Form1 : Form
     {
+        static int X;
+        static int Y;
         static double[,] matrixPoints = new double[4, 3];
         Matrix matrix = new Matrix();
         public Form1()
@@ -75,6 +77,8 @@ namespace CGPaсtice3
             var y = (pictureBox1.Height - 40 - pictureBox1.Height / 2) / 10;
             var xcentre = pictureBox1.Width / 2;
             var ycentre = pictureBox1.Height / 2;
+            X = pictureBox1.Width;
+            Y = pictureBox1.Height;
             for (int i = 1; i < 10; i++)
             {
                 //Шаг на оx
@@ -133,6 +137,10 @@ namespace CGPaсtice3
             matrixPoints = matrix.Rotation(matrixPoints, Convert.ToDouble(textBox5.Text) * Math.PI / 180);
         }
 
-       
+        private void pictureBox1_Resize(object sender, EventArgs e)
+        {
+            matrixPoints = matrix.Dilatation(matrixPoints, Convert.ToDouble(pictureBox1.Width / (double)X),
+                Convert.ToDouble(pictureBox1.Height / (double)Y)); 
+        }
     }
 }
