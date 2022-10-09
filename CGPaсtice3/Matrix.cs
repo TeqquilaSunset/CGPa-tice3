@@ -22,6 +22,7 @@ namespace CGPaсtice3
             {(double)-Math.Sin(f), (double)Math.Cos(f), 0},
             {0, 0, 1},
         };
+
             return Multiplication(A, rotation);
         }
 
