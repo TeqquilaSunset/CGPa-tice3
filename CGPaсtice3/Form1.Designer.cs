@@ -30,6 +30,8 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -61,10 +63,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(761, 552);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Resize += new System.EventHandler(this.pictureBox1_Resize);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.button5);
@@ -89,18 +92,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(12, 322);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(108, 24);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "Поворот по Z";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.MouseCaptureChanged += new System.EventHandler(this.DrawXY);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 295);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(108, 24);
+            this.button6.TabIndex = 15;
+            this.button6.Text = "Поворот по Y";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.MouseCaptureChanged += new System.EventHandler(this.DrawXY);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 302);
+            this.label5.Location = new System.Drawing.Point(8, 365);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "В градусах";
+            this.label5.Text = "Градусы";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(72, 299);
+            this.textBox5.Location = new System.Drawing.Point(71, 362);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(48, 20);
             this.textBox5.TabIndex = 13;
@@ -197,7 +222,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(108, 24);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Поворот";
+            this.button4.Text = "Поворот по X";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             this.button4.MouseCaptureChanged += new System.EventHandler(this.DrawXY);
@@ -263,6 +288,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
     }
 }
 

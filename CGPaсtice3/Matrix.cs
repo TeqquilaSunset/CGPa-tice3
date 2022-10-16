@@ -14,17 +14,45 @@ namespace CGPaсtice3
         /// <param name="A">Матрица с координатами фигуры</param>
         /// <param name="f">угол наклона в градусах</param>
         /// <returns>Матрица с преобразованными координатами фигуры</returns>
-        public double[,] Rotation(double[,] A, double f)
+        public float[,] RotationX(float[,] A, float f)
         {
-            double[,] rotation =
+            float[,] rotation =
         {
-            {(double)Math.Cos(f), (double)Math.Sin(f), 0},
-            {(double)-Math.Sin(f), (double)Math.Cos(f), 0},
-            {0, 0, 1},
+            { 1, 0, 0 ,0},
+            { 0, (float)Math.Cos(f), (float)Math.Sin(f), 0 },
+            { 0, -(float)Math.Sin(f), (float)Math.Cos(f), 0},
+            { 0, 0, 0, 1 }
         };
 
             return Multiplication(A, rotation);
         }
+
+        public float[,] RotationY(float[,] A, float f)
+        {
+            float[,] rotation =
+        {
+            { (float)Math.Cos(f), 0, -(float)Math.Sin(f), 0 },
+            { 0, 1, 0, 0 },
+            { (float)Math.Sin(f), 0, (float)Math.Cos(f), 0 },
+            { 0, 0, 0, 1 }
+        };
+
+            return Multiplication(A, rotation);
+        }
+
+        public float[,] RotationZ(float[,] A, float f)
+        {
+            float[,] rotation =
+                {
+                { (float)Math.Cos(f), (float)Math.Sin(f), 0, 0},
+                {-(float)Math.Sin(f), (float)Math.Cos(f), 0, 0 },
+                { 0 ,0, 1, 0 },
+                {0, 0, 0, 1 }
+            };
+
+            return Multiplication(A, rotation);
+        }
+
 
         /// <summary>
         /// Растяжение сжатие
@@ -33,13 +61,14 @@ namespace CGPaсtice3
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public double[,] Dilatation(double[,] A, double x, double y)
+        public float[,] Dilatation(float[,] A, float x, float y, float z)
         {
-            double[,] dilatation =
+            float[,] dilatation =
         {
-            {x, 0, 0},
-            {0, y, 0},
-            {0, 0, 1},
+            {x, 0, 0, 0},
+            {0, y, 0, 0},
+            {0, 0, 1, 0},
+            {0, 0, 0, 1},
         };
             return Multiplication(A, dilatation);
         }
@@ -50,9 +79,9 @@ namespace CGPaсtice3
         /// <param name="A"></param>
         /// <param name="s">x или y по какой оси инвертировать</param>
         /// <returns></returns>
-        public double[,] Irror_reflection(double[,] A, int x, int y)
+        public float[,] Irror_reflection(float[,] A, int x, int y)
         {
-            double[,] irror_reflection =
+            float[,] irror_reflection =
         {
             {x, 0, 0},
             {0, y, 0},
@@ -69,9 +98,9 @@ namespace CGPaсtice3
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public double[,] Translation(double[,] A, int x, int y)
+        public float[,] Translation(float[,] A, int x, int y)
         {
-            double[,] translation =
+            float[,] translation =
         {
             {1, 0, 0},
             {0, 1, 0},
@@ -86,9 +115,9 @@ namespace CGPaсtice3
         /// <param name="A">Матрица А</param>
         /// <param name="B">Матрица В</param>
         /// <returns>Матрица с результатами перемножения</returns>
-        private double[,] Multiplication(double[,] A, double[,] B)
+        private float[,] Multiplication(float[,] A, float[,] B)
         {
-            double[,] r = new double[A.GetLength(0),  A.GetLength(1)];
+            float[,] r = new float[A.GetLength(0), A.GetLength(1)];
             for (int i = 0; i < A.GetLength(0); i++)
             {
                 for (int j = 0; j < B.GetLength(1); j++)

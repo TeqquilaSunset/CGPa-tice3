@@ -10,13 +10,17 @@ namespace CGPaсtice3
 {
     internal class Polygon
     {
-        Point[] points = new Point[4];
-        public  Polygon(int x, int y)
+       double[,] matrixPoints;
+
+        public Polygon(int n)
         {
-            points[0] = new Point(7 * x, y * 10);
-            points[0] = new Point(-4 * x, y * 3);
-            points[0] = new Point(Convert.ToInt32(-x * 5.5), -y * 3);
-            points[0] = new Point(Convert.ToInt32(-x * 5.5), -y * 9);
+            matrixPoints = new double[n, 4];
         }
+
+        public void Initialize(double[,] array)
+        {
+            matrixPoints = array;
+        }
+
     }
 }
