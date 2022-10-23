@@ -107,6 +107,21 @@ namespace CGPaсtice3
                 g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
                 g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
                 g.DrawLine(pen, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY);
+
+                //g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY);
+
+                //g.DrawLine(pen, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY);
+
+                //g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
+                //g.DrawLine(pen, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY);
                 return;
             }
             g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY);

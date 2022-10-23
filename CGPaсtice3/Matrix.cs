@@ -153,6 +153,13 @@ namespace CGPaсtice3
             {0, 1, 0, 1},
             {0, 0, 1, 1},
         };
+            //float[,] isometric =
+            //{
+            //    {(float)Math.Cos(f1), (float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
+            //    {0, (float )Math.Cos(f2), 0, 0 },
+            //    {(float)Math.Sin(f1), -(float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
+            //    {0, 0, 0, 1 }
+            //};
             float[,] isometric =
             {
                 {(float)Math.Cos(f1), (float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
@@ -160,6 +167,7 @@ namespace CGPaсtice3
                 {(float)Math.Sin(f1), -(float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
                 {0, 0, 0, 1 }
             };
+            //return Multiplication(A, isometric);
             return Multiplication(Multiplication(A, isometric), temp);
         }
     }

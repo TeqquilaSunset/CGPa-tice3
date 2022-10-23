@@ -20,40 +20,53 @@ namespace CGPaсtice3
 
         static float[,] matrixPointsP =
         {
-            {7    , 10, z, 1 },
-            {-4   , 3, z, 1  },
-            {-5.5f, -3, z, 1  },
-            {-5.5f, -9, z, 1  },
+            {7    , 10, 2, 1 },
+            {-4   , 3, 2, 1  },
+            {-5.5f, -3, 2, 1  },
+            {-5.5f, -9, 2, 1  },
 
-            {7, 10, -z, 1 },
-            {-4, 3, -z, 1  },
-            {-5.5f, -3, -z, 1  },
-            {-5.5f, -9, -z, 1  },
+            {7, 10, -2, 1 },
+            {-4, 3, -2, 1  },
+            {-5.5f, -3, -2, 1  },
+            {-5.5f, -9, -2, 1  },
         };
+
+        //static float[,] matrixPointsP =
+        //{
+        //    {0 , -4, 2, 1 },
+        //    {0, 0, 2, 1  },
+        //    {4, 0, 2, 1  },
+        //    {4, -4, 2, 1  },
+
+        //    {0, -4, -2, 1 },
+        //    {0, 0, -2, 1  },
+        //    {4, 0, -2, 1  },
+        //    {4, -4, -2, 1  },
+        //};
 
         //laba
         static float[,] matrixPointsL =
         {
-            {0, -6, 0, 1 },
+            {0, -8, 0, 1 },
             {-4, 0, z, 1  },
             {4, 0, z, 1  },
-            {0, 6, 0, 1  },
+            {0, 8, 0, 1  },
 
-            {0, -6, 0, 1 },
+            {0, -8, 0, 1 },
             {-4, 0, -z, 1  },
             {4, 0, -z, 1  },
-            {0, 6, 0, 1  },
+            {0, 8, 0, 1  },
         };
 
 
 
-        static float[,] matrixPoints = new float[8,4];
+        static float[,] matrixPoints = new float[8, 4];
 
         void UpdateRadioButton()
         {
-            if(radioButton1.Checked)
+            if (radioButton1.Checked)
                 matrixPoints = matrixPointsP;
-            else 
+            else
                 matrixPoints = matrixPointsL;
         }
         Matrix matrix = new Matrix();
@@ -122,7 +135,7 @@ namespace CGPaсtice3
         //Проекция
         private void button9_Click(object sender, EventArgs e)
         {
-            matrixPoints = matrix.Isometric(matrixPoints, 120f, 120f, 120f);
+            matrixPoints = matrix.Isometric(matrixPoints, 0.707f, 0.408f, 1f);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
