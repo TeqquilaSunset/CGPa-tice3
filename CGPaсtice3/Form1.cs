@@ -16,19 +16,46 @@ namespace CGPaсtice3
     {
         static int X;
         static int Y;
-        static float z = 2.0f;
-        static float[,] matrixPoints =
+        static float z = 4.0f;
+
+        static float[,] matrixPointsP =
         {
             {7    , 10, z, 1 },
             {-4   , 3, z, 1  },
             {-5.5f, -3, z, 1  },
             {-5.5f, -9, z, 1  },
+
             {7, 10, -z, 1 },
             {-4, 3, -z, 1  },
             {-5.5f, -3, -z, 1  },
             {-5.5f, -9, -z, 1  },
         };
 
+        //laba
+        static float[,] matrixPointsL =
+        {
+            {0, -6, 0, 1 },
+            {-4, 0, z, 1  },
+            {4, 0, z, 1  },
+            {0, 6, 0, 1  },
+
+            {0, -6, 0, 1 },
+            {-4, 0, -z, 1  },
+            {4, 0, -z, 1  },
+            {0, 6, 0, 1  },
+        };
+
+
+
+        static float[,] matrixPoints = new float[8,4];
+
+        void UpdateRadioButton()
+        {
+            if(radioButton1.Checked)
+                matrixPoints = matrixPointsP;
+            else 
+                matrixPoints = matrixPointsL;
+        }
         Matrix matrix = new Matrix();
         void Up()
         {
@@ -40,38 +67,42 @@ namespace CGPaсtice3
             InitializeComponent();
             Up();
         }
-        
+
         private void DrawXY(object sender, EventArgs e)
         {
             Refresh();
             Graphics g = pictureBox1.CreateGraphics();
-            Axes3D axes3D = new Axes3D(g,pictureBox1);
-            axes3D.Draw(matrixPoints,g,pictureBox1);
+            Axes3D axes3D = new Axes3D(g, pictureBox1);
+            axes3D.Draw(matrixPoints, g, pictureBox1, radioButton1.Checked);
         }
 
- 
+
         //сдвиг
         private void button1_Click(object sender, EventArgs e)
         {
 
-            matrixPoints = matrix.Translation(matrixPoints, Convert.ToInt32(textBox1.Text) * (pictureBox1.Width - 40 - pictureBox1.Width / 2) / 10,
-                -Convert.ToInt32(textBox2.Text) * (pictureBox1.Height - 40 - pictureBox1.Height / 2) / 10);
-            //matrixPoints = matrix.Translation(matrixPoints, 0, Convert.ToInt32(textBox2.Text));
+            matrixPoints = matrix.Translation(matrixPoints, int.Parse(textBox1.Text), -int.Parse(textBox2.Text),
+                int.Parse(textBox6.Text));
         }
+
         // масштабирование
         private void button2_Click(object sender, EventArgs e)
         {
             matrixPoints = matrix.Dilatation(matrixPoints, float.Parse(textBox4.Text),
-                float.Parse(textBox3.Text), z);
+                float.Parse(textBox3.Text), float.Parse(textBox7.Text));
         }
         //отражение
         private void button3_Click(object sender, EventArgs e)
         {
-            matrixPoints = matrix.Irror_reflection(matrixPoints, -1, 1);
+            matrixPoints = matrix.Irror_reflection(matrixPoints, -1, 1, 1);
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            matrixPoints = matrix.Irror_reflection(matrixPoints, 1, -1);
+            matrixPoints = matrix.Irror_reflection(matrixPoints, 1, -1, 1);
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            matrixPoints = matrix.Irror_reflection(matrixPoints, 1, 1, -1);
         }
         //поворот по х
         private void button4_Click(object sender, EventArgs e)
@@ -87,6 +118,21 @@ namespace CGPaсtice3
         private void button7_Click(object sender, EventArgs e)
         {
             matrixPoints = matrix.RotationZ(matrixPoints, float.Parse(textBox5.Text) * (float)Math.PI / 180);
+        }
+        //Проекция
+        private void button9_Click(object sender, EventArgs e)
+        {
+            matrixPoints = matrix.Isometric(matrixPoints, 120f, 120f, 120f);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateRadioButton();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateRadioButton();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CGPaсtice3
     internal class Matrix
     {
         /// <summary>
-        /// Поворт
+        /// Поворт относительно X
         /// </summary>
         /// <param name="A">Матрица с координатами фигуры</param>
         /// <param name="f">угол наклона в градусах</param>
@@ -27,6 +27,12 @@ namespace CGPaсtice3
             return Multiplication(A, rotation);
         }
 
+        /// <summary>
+        /// Поворот отностительно Y
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
         public float[,] RotationY(float[,] A, float f)
         {
             float[,] rotation =
@@ -40,6 +46,12 @@ namespace CGPaсtice3
             return Multiplication(A, rotation);
         }
 
+        /// <summary>
+        /// Поворот относительно Z
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
         public float[,] RotationZ(float[,] A, float f)
         {
             float[,] rotation =
@@ -67,7 +79,7 @@ namespace CGPaсtice3
         {
             {x, 0, 0, 0},
             {0, y, 0, 0},
-            {0, 0, 1, 0},
+            {0, 0, z, 0},
             {0, 0, 0, 1},
         };
             return Multiplication(A, dilatation);
@@ -79,13 +91,14 @@ namespace CGPaсtice3
         /// <param name="A"></param>
         /// <param name="s">x или y по какой оси инвертировать</param>
         /// <returns></returns>
-        public float[,] Irror_reflection(float[,] A, int x, int y)
+        public float[,] Irror_reflection(float[,] A, int x, int y, int z)
         {
             float[,] irror_reflection =
         {
-            {x, 0, 0},
-            {0, y, 0},
-            {0, 0, 1},
+            {x, 0, 0, 0},
+            {0, y, 0, 0},
+            {0, 0, z, 0},
+            {0, 0, 0, 1},
         };
             return Multiplication(A, irror_reflection);
 
@@ -98,13 +111,14 @@ namespace CGPaсtice3
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public float[,] Translation(float[,] A, int x, int y)
+        public float[,] Translation(float[,] A, int x, int y, int z)
         {
             float[,] translation =
         {
-            {1, 0, 0},
-            {0, 1, 0},
-            {x, y, 1},
+            {1, 0, 0, 0},
+            {0, 1, 0, 0},
+            {0, 0, 1, 0},
+            {x, y, z, 1},
         };
             return Multiplication(A, translation);
         }
@@ -129,6 +143,24 @@ namespace CGPaсtice3
                 }
             }
             return r;
+        }
+
+        public float[,] Isometric(float[,] A, float f1, float f2, float f3)
+        {
+            float[,] temp =
+            {
+            {1, 0, 0, 1},
+            {0, 1, 0, 1},
+            {0, 0, 1, 1},
+        };
+            float[,] isometric =
+            {
+                {(float)Math.Cos(f1), (float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
+                {0, (float )Math.Cos(f2), 0, 0 },
+                {(float)Math.Sin(f1), -(float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
+                {0, 0, 0, 1 }
+            };
+            return Multiplication(Multiplication(A, isometric), temp);
         }
     }
 }
