@@ -85,9 +85,10 @@ namespace CGPaсtice3
         }
         public void Draw(float[,] A, Graphics g, PictureBox pictureBox, bool flag)
         {
-            Pen pen = new Pen(Color.Red, 2);
-            Pen pen2 = new Pen(Color.Green, 1);
-
+            Pen pen = new Pen(Color.Red, 3);
+            Pen pen2 = new Pen(Color.Green, 2);
+            Pen pen3 = new Pen(Color.Blue, 2);
+            Pen pen4 = new Pen(Color.Yellow, 2);
 
             //laba4
             if (flag)
@@ -107,23 +108,9 @@ namespace CGPaсtice3
                 g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
                 g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
                 g.DrawLine(pen, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY);
-
-                //g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY);
-
-                //g.DrawLine(pen, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY);
-
-                //g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
-                //g.DrawLine(pen, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY);
                 return;
             }
+            //laba4
             g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY);
             g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY);
             g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
@@ -138,8 +125,6 @@ namespace CGPaсtice3
             g.DrawLine(pen, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY);
             g.DrawLine(pen, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY, centreX + A[5, 0] * stepX, centreY + A[5, 1] * stepY);
             g.DrawLine(pen, centreX + A[7, 0] * stepX, centreY + A[7, 1] * stepY, centreX + A[6, 0] * stepX, centreY + A[6, 1] * stepY);
-            
-
 
         }
     }
