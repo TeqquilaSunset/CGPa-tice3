@@ -62,7 +62,7 @@ namespace CGPaсtice3
             stepX = (pictureBox1.Width - 40 - pictureBox1.Width / 2) / 15;
             stepY = (pictureBox1.Height - 40 - pictureBox1.Height / 2) / 15;
             //stepZ = (Int32)Math.Sqrt(Math.Pow(Math.Abs(pictureBox1.Width / 2 - pictureBox1.Width / 4), 2) +
-             //   Math.Pow(Math.Abs(pictureBox1.Height / 2 - pictureBox1.Height / 4), 2)) / 15;
+            //   Math.Pow(Math.Abs(pictureBox1.Height / 2 - pictureBox1.Height / 4), 2)) / 15;
             centreX = pictureBox1.Width / 2;
             centreY = pictureBox1.Height / 2;
             //centreZ = (Int32)Math.Sqrt(Math.Pow(Math.Abs(pictureBox1.Width / 2), 2) +
@@ -94,6 +94,22 @@ namespace CGPaсtice3
             if (flag)
             {
                 //Практика
+
+                //for (int i = 0; i < 4; i++)
+                //{
+                //    g.DrawLine(pen, centreX + A[i, 0] * stepX, centreY + A[i, 1] * stepY, centreX + A[i + 4, 0] * stepX, centreY + A[i + 4, 1] * stepY);
+                //}
+
+                //for (int i = 0; i < 4; i++)
+                //{
+                //    g.DrawLine(pen, centreX + A[i, 0] * stepX, centreY + A[i, 1] * stepY, centreX + A[i+1, 0] * stepX, centreY + A[i+1, 1] * stepY);
+                //    //g.DrawLine(pen, centreX + A[i + 4, 0] * stepX, centreY + A[i + 4, 1] * stepY, centreX + A[i + 4, 0] * stepX, centreY + A[i + 4, 1] * stepY);
+                //    if (i == 3)
+                //    {
+                //        //g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[i, 1] * stepY, centreX + A[i + 1, 0] * stepX, centreY + A[i + 1, 1] * stepY);
+                //       // g.DrawLine(pen, centreX + A[i + 4, 0] * stepX, centreY + A[i + 4, 1] * stepY, centreX + A[4, 0] * stepX, centreY + A[4, 1] * stepY);
+                //    }
+                //}
                 g.DrawLine(pen, centreX + A[0, 0] * stepX, centreY + A[0, 1] * stepY, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY);
                 g.DrawLine(pen, centreX + A[1, 0] * stepX, centreY + A[1, 1] * stepY, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY);
                 g.DrawLine(pen, centreX + A[2, 0] * stepX, centreY + A[2, 1] * stepY, centreX + A[3, 0] * stepX, centreY + A[3, 1] * stepY);
