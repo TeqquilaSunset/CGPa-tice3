@@ -135,7 +135,7 @@ namespace CGPaсtice3
         //Проекция
         private void button9_Click(object sender, EventArgs e)
         {
-            matrixPoints = matrix.Isometric(matrixPoints, 0.707f, 0.408f, 1f);
+            matrixPoints = matrix.Isometric(matrixPoints, (float)Math.PI / 180 * 30f, (float)Math.PI / 180 * 45f, 1f);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

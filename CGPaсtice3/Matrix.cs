@@ -149,9 +149,9 @@ namespace CGPaсtice3
         {
             float[,] temp =
             {
-            {1, 0, 0, 1},
-            {0, 1, 0, 1},
-            {0, 0, 1, 1},
+            {1, 0, 0, 0},
+            {0, 1, 0, 0},
+            {0, 0, 0, 0},
         };
             float[,] isometric =
             {
@@ -167,8 +167,11 @@ namespace CGPaсtice3
             //    {(float)Math.Sin(f1), -(float)Math.Sin(f2)*(float)Math.Cos(f1), 0, 0 },
             //    {0, 0, 0, 1 }
             //};
+            A = RotationY(A, f2);
+            A = RotationX(A, f1);
+            return Multiplication(A, temp);
             //return Multiplication(A, isometric);
-            return Multiplication(Multiplication(A, isometric), temp);
+            
         }
     }
 }
